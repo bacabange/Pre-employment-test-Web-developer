@@ -4,6 +4,8 @@ include 'models/my_patient.php';
 
 $patient_model = new my_patient();
 
+$patients_by_age = $patient_model->list_group_by_age();
+
 if (isset($_REQUEST['age'])) {
     $patients = $patient_model->list_by_age($_REQUEST['age']);
 }else{
@@ -61,8 +63,10 @@ if (isset($_REQUEST['age'])) {
         <p>
             <label for="patient_filter">Number of patients grouped by age</label>
             <ul>
-                <!-- Hint: Task 3. -->
-                <li><span>Age:  </span><span>Patients quantity: </span></li>
+                <!-- Punto 3 Listar numero de paciente por edades -->
+                <?php foreach($patients_by_age as $patient): ?>
+                    <li><span>Age: <?php echo $patient->patient_age ?> </span><span>Patients quantity: <?php echo $patient->quantity ?></span></li>
+                <?php endforeach ?>
             </ul>
         </p>
 
