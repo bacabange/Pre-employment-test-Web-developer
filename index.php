@@ -16,7 +16,7 @@ $patients = $patient_model->list_all();
     <title>Test for New Hires</title>
     <meta name="description" content="Test for New Hires">
     <meta name="author" content="PV">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="src/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -26,7 +26,7 @@ $patients = $patient_model->list_all();
 
         <p>
             <label for="patient_filter">Filter by Name</label>
-            <input type="text" name="patient_filter" />
+            <input type="text" name="patient_filter" id="patient_filter" />
         </p>
 
         <p>
@@ -46,7 +46,7 @@ $patients = $patient_model->list_all();
         <!-- Hint: Task 4. -->
         <?php foreach($patients as $patient): ?>
             <div class="row">
-                <div class="col-xs-4"><?php echo $patient->patient_name; ?></div>
+                <div class="col-xs-4 name"><?php echo $patient->patient_name; ?></div>
                 <div class="col-xs-4"><?php echo $patient->patient_age; ?></div>
                 <div class="col-xs-4"><?php echo $patient->patient_phone; ?></div>
             </div>
@@ -55,9 +55,9 @@ $patients = $patient_model->list_all();
     </div>
 
     <!-- scripts at the bottom! -->
-    <script src="public/js/jquery-3.2.1.min.js"></script>
-    <script src="public/js/bootstrap.js"></script>
-    <script src="public/js/script.js"></script>
+    <script src="src/js/jquery-3.2.1.min.js"></script>
+    <script src="src/js/bootstrap.js"></script>
+    <script src="src/js/script.js"></script>
 
     <!--  Hint: Task 5. -->
     <!-- <script src="public/js/script.js"></script> -->
