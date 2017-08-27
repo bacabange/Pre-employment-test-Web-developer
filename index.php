@@ -16,7 +16,7 @@ $patients = $patient_model->list_all();
     <title>Test for New Hires</title>
     <meta name="description" content="Test for New Hires">
     <meta name="author" content="PV">
-    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
 
