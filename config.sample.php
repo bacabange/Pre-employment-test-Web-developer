@@ -9,6 +9,6 @@
 
 [DB]
 host = 127.0.0.1
-user = 'your_username'
-pass = 'your_password'
-database = test_db
+user = 'homestead'
+pass = 'secret'
+database = test
