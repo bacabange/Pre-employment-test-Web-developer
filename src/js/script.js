@@ -18,4 +18,12 @@ $(function() {
 			}
 		});
 	});
+
+	$("#age").change(function(event) {
+		if ($(this).val() == "") {
+			location.href = base_url;
+		} else {
+			location.href = base_url + '?age=' + $(this).val();
+		}
+	});
 });

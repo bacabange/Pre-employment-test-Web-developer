@@ -4,7 +4,11 @@ include 'models/my_patient.php';
 
 $patient_model = new my_patient();
 
-$patients = $patient_model->list_all();
+if (isset($_REQUEST['age'])) {
+    $patients = $patient_model->list_by_age($_REQUEST['age']);
+}else{
+    $patients = $patient_model->list_all();
+}
 
 ?>
 
@@ -23,10 +27,35 @@ $patients = $patient_model->list_all();
     <div class="container">
 
         <h1>Patient Listing</h1>
+        
+        <form role="form">
+            <legend>Filter</legend>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="patient_filter">Patient Name</label>
+                        <input class="form-control" type="text" name="patient_filter" id="patient_filter" />
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="patient_filter">Older than</label>
+                        <select name="age" class="form-control" id="age">
+                            <option value="" <?php if (! isset($_REQUEST['age'])): ?> selected <?php endif ?>>all</option>
+                            <option value="20" <?php if (isset($_REQUEST['age'])): ?> <?php echo ($_REQUEST['age'] == 20) ? 'selected' : '' ?> <?php endif ?>>20 years</option>
+                            <option value="30" <?php if (isset($_REQUEST['age'])): ?> <?php echo ($_REQUEST['age'] == 30) ? 'selected' : '' ?> <?php endif ?>>30 years</option>
+                            <option value="40" <?php if (isset($_REQUEST['age'])): ?> <?php echo ($_REQUEST['age'] == 40) ? 'selected' : '' ?> <?php endif ?>>40 years</option>
+                            <option value="50" <?php if (isset($_REQUEST['age'])): ?> <?php echo ($_REQUEST['age'] == 50) ? 'selected' : '' ?> <?php endif ?>>50 years</option>
+                            <option value="100" <?php if (isset($_REQUEST['age'])): ?> <?php echo ($_REQUEST['age'] == 100) ? 'selected' : '' ?> <?php endif ?>>100 years</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
 
         <p>
-            <label for="patient_filter">Filter by Name</label>
-            <input type="text" name="patient_filter" id="patient_filter" />
         </p>
 
         <p>
@@ -53,6 +82,10 @@ $patients = $patient_model->list_all();
         <?php endforeach; ?>
 
     </div>
+
+    <script>
+       var base_url = '<?php echo "http://" . $_SERVER['SERVER_NAME']; ?>';
+    </script>
 
     <!-- scripts at the bottom! -->
     <script src="src/js/jquery-3.2.1.min.js"></script>
