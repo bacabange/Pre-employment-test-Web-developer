@@ -72,7 +72,7 @@ if (isset($_REQUEST['age'])) {
 
         <div class="row">
             <div class="col-xs-4">Name</div>
-            <div class="col-xs-4">Age</div>
+            <div class="col-xs-4 hidden-xs">Age</div>
             <div class="col-xs-4">Phone</div>
         </div>
 
@@ -80,7 +80,7 @@ if (isset($_REQUEST['age'])) {
         <?php foreach($patients as $patient): ?>
             <div class="row">
                 <div class="col-xs-4 name"><?php echo $patient->patient_name; ?></div>
-                <div class="col-xs-4"><?php echo $patient->patient_age; ?></div>
+                <div class="col-xs-4 hidden-xs"><?php echo $patient->patient_age; ?></div>
                 <div class="col-xs-4"><?php echo $patient->patient_phone; ?></div>
             </div>
         <?php endforeach; ?>
@@ -92,9 +92,9 @@ if (isset($_REQUEST['age'])) {
     </script>
 
     <!-- scripts at the bottom! -->
-    <script src="src/js/jquery-3.2.1.min.js"></script>
+    <script src="src/js/all.min.js"></script><!-- 
     <script src="src/js/bootstrap.js"></script>
-    <script src="src/js/script.js"></script>
+    <script src="src/js/script.js"></script> -->
 
     <!--  Hint: Task 5. -->
     <!-- <script src="public/js/script.js"></script> -->
